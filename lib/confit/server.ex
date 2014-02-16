@@ -2,7 +2,7 @@ defmodule Confit.Server do
   use GenServer.Behaviour
 
   defrecordp :state, path: nil, conf: []
- 
+
   def start_link() do
     :gen_server.start_link({ :local, __MODULE__ }, __MODULE__, [], [])
   end

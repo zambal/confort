@@ -5,13 +5,13 @@ defmodule Confit do
   At startup, `Confit` looks for a `:conf_path` keyword in your
   project's Mix file and tries to load the file it specifies,
   for example:
-  
+
       def project do
         [ app: :myapp,
           conf_path: "priv/myapp.conf" ]
       end
 
-  `Confit` provides two function for getting values from a 
+  `Confit` provides two function for getting values from a
   configuration file: `Confit.get/1` and `Confit.get/2`.
   The first accepts a key and the second accepts a
   key and a sub-key. If your project will be used as a dependency
@@ -23,7 +23,7 @@ defmodule Confit do
   `Confit` also supports reloading a configuration file with `Confit.reload/0`,
    or loading one dynamically with `Confit.load/1`. However, for normal use cases
    it is not advised to use these functions and let `Confit` just load the
-   configuration file specified with `:conf_path` at startup. 
+   configuration file specified with `:conf_path` at startup.
   """
 
   use Application.Behaviour
@@ -44,11 +44,11 @@ defmodule Confit do
 
   @doc """
   Accepts atoms as key and sub-key and returns the associated value, if any.
-  
+
   Example:
 
   Given this configuration `[my_app: [key1: 42]]`:
-    
+
       iex> Confit.get(:my_app, :key1)
       42
   """
