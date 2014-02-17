@@ -1,4 +1,4 @@
-defmodule Confit.Server do
+defmodule Confort.Server do
   use GenServer.Behaviour
 
   defrecordp :state, path: nil, conf: []

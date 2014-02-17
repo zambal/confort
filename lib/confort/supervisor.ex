@@ -1,4 +1,4 @@
-defmodule Confit.Supervisor do
+defmodule Confort.Supervisor do
   use Supervisor.Behaviour
 
   def start_link do
@@ -7,7 +7,7 @@ defmodule Confit.Supervisor do
 
   def init([]) do
     children = [
-      worker(Confit.Server, [])
+      worker(Confort.Server, [])
     ]
 
     supervise(children, strategy: :one_for_one)

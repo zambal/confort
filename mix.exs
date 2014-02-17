@@ -1,12 +1,12 @@
-defmodule Confit.Mixfile do
+defmodule Confort.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :confit,
+    [ app: :confort,
       version: "0.0.1" ]
   end
 
   def application do
-    [mod: { Confit, [] }]
+    [mod: { Confort, [] }]
   end
 end
