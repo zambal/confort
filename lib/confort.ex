@@ -58,6 +58,14 @@ defmodule Confort do
   end
 
   @doc """
+  Get the complete configuration as a keyword list.
+  """
+  @spec all() :: Keyword.t
+  def all do
+    :gen_server.call(@server, :all)
+  end
+
+  @doc """
   Reloads a previously loaded configuration file from disk.
   """
   @spec reload() :: :ok | { :error, any }

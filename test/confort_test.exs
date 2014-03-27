@@ -11,6 +11,11 @@ defmodule ConfortTest do
     assert 42 == Confort.get(:app1, :key1)
   end
 
+  test "all" do
+    assert :ok == Confort.load("test/good.conf")
+    assert [hello: :world, app1: [key1: 42, key2: "value"]] == Confort.all()
+  end
+
   test "reload" do
     File.write("test/temp.conf", "[a: 42]")
     assert :ok == Confort.load("test/temp.conf")

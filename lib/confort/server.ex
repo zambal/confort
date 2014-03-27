@@ -29,6 +29,10 @@ defmodule Confort.Server do
     { :reply, conf[key][sub_key], s }
   end
 
+  def handle_call(:all, _from, state(conf: conf) = s) do
+    { :reply, conf, s }
+  end
+
   def handle_call(:reload, _from, state(path: path) = s) do
     case load(path) do
       { :ok, conf } ->
