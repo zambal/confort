@@ -26,7 +26,7 @@ defmodule Confort do
    configuration file specified with `:conf_path` at startup.
   """
 
-  use Application.Behaviour
+  use Application
 
   @server Confort.Server
 

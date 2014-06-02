@@ -1,5 +1,6 @@
 defmodule Confort.Server do
-  use GenServer.Behaviour
+  use GenServer
+  import Record
 
   defrecordp :state, path: nil, conf: []
 
