@@ -9,7 +9,7 @@ defmodule Confort.Server do
   end
 
   def init([]) do
-    case Keyword.get(Mix.project(), :conf_path) do
+    case Keyword.get(Mix.Project.config(), :conf_path) do
       nil ->
         { :ok, state() }
       path ->
@@ -63,15 +63,11 @@ defmodule Confort.Server do
 
  defp eval_conf_bin(bin) do
    case Code.string_to_quoted(bin) do
-     { :ok, { :__block__, _, [quoted] } } ->
-       if Macro.safe_term(quoted) == :ok do
-         { conf, _bindings } = Code.eval_quoted(quoted)
-         { :ok, conf }
-       else
-         { :error, :unsafe_conf }
-       end
-     { :ok, _bad_block } ->
+     { :ok, { :__block__, _, _ } } ->
        { :error, :bad_conf }
+     { :ok, quoted } ->
+       { conf, _bindings } = Code.eval_quoted(quoted)
+       { :ok, conf }
      error ->
        error
    end

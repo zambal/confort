@@ -27,11 +27,7 @@ defmodule ConfortTest do
   end
 
   test "syntax error" do
-    assert { :error, { 5, 'syntax error before: ', ['key2'] } } == Confort.load("test/bad1.conf")
-  end
-
-  test "unsafe conf" do
-    assert { :error, :unsafe_conf } == Confort.load("test/bad2.conf")
+    assert { :error, { 5, "syntax error before: ", "key2" } } == Confort.load("test/bad1.conf")
   end
 
   test "bad conf" do
