@@ -52,7 +52,7 @@ defmodule Confort.Server do
     end
   end
 
- defp load(path) do
+ def load(path) do
    case File.read(path) do
      { :ok, bin } ->
        eval_conf_bin(bin)

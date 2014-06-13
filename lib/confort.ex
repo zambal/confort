@@ -80,4 +80,12 @@ defmodule Confort do
   def load(path) do
     :gen_server.call(@server, { :load, path })
   end
+
+  @doc """
+  Reads and evaluates a conf file from disk and returns the result directly, instead of storing it at the Confort server.
+  """
+  @spec fetch(String.t) :: { :ok, Keyword.t } | { :error, any }
+  def fetch(path) do
+    Confort.Server.load(path)
+  end
 end
