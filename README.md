@@ -1,4 +1,4 @@
-
+# This library is deprecated. Please use the default config library from Elixir's standard library.
 
 # Confort
 
